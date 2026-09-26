@@ -40,10 +40,17 @@ class Program
 
     static void WyswietlGry(List<Gra> gry) 
     {
-        foreach (Gra gra in gry)
-        { 
-            Console.WriteLine(gra.Tytul + " / " + gra.Gatunek + " / " + gra.RokWydania); 
-        } 
+        if (gry.Count == 0)
+        {
+            Console.WriteLine("Lista gier jest pusta.");
+        }
+        else
+        {
+            foreach (Gra gra in gry)
+            {
+                Console.WriteLine(gra.Tytul + " / " + gra.Gatunek + " / " + gra.RokWydania);
+            }
+        }
     } 
     
     static void WyszukajGre(List<Gra> gry) 
