@@ -116,6 +116,22 @@ class Program
         }
     }
 
+    static void UsunGre(List<Gra> gry)
+    {
+        Console.WriteLine("Wpisz tutaj tytuł gry którą chcesz usunąć: ");
+        string szukaj = Console.ReadLine();
+        Gra? znalezionaGra = gry.FirstOrDefault(gra => gra.Tytul == szukaj);
+        if (znalezionaGra != null)
+        {
+            gry.Remove(znalezionaGra);
+            Console.WriteLine("Gra została usunięta.");
+        }
+        else
+        {
+            Console.WriteLine("Nie znaleziono takiej gry.");
+        }
+    }
+
 
     static void Main() 
     { 
@@ -128,7 +144,8 @@ class Program
             Console.WriteLine("3. Wyszukaj grę"); 
             Console.WriteLine("4. Zapisz gry");
             Console.WriteLine("5. Wczytaj gry");
-            Console.WriteLine("6. Zakończ");
+            Console.WriteLine("6. Usuń grę");
+            Console.WriteLine("7. Zakończ");
             
             choice = Console.ReadLine(); 
 
@@ -152,7 +169,11 @@ class Program
             {
                 WczytajGry(gry);
             }
-            else if (choice == "6") 
+            else if (choice == "6")
+            {
+                UsunGre(gry);
+            }
+            else if (choice == "7") 
             { 
                 Console.WriteLine("Koniec programu."); 
             } 
@@ -160,6 +181,6 @@ class Program
             { 
                 Console.WriteLine("Zły wybór. Proszę wybrać jedną z dostępnych opcji."); 
             } 
-        } while (choice != "6"); 
+        } while (choice != "7"); 
     } 
 }
